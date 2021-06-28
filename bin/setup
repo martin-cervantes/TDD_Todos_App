@@ -1,21 +1,18 @@
-#!/bin/sh
+#!/usr/bin/env sh
 
-# Set up Rails app. Run this script immediately after cloning the codebase.
+# Run this script immediately after cloning the codebase.
 # https://github.com/thoughtbot/guides/tree/master/protocol
 
 # Exit if any subcommand fails
 set -e
 
 # Set up Ruby dependencies via Bundler
-gem install bundler --conservative
-bundle check || bundle install
+if ! command -v bundle > /dev/null; then
+  gem install bundler --no-document --pre
+fi
 
-# Set up database and add any development seed data
-bin/rake dev:prime
+bundle install
 
-# Add binstubs to PATH via export PATH=".git/safe/../../bin:$PATH" in ~/.zshenv
-mkdir -p .git/safe
-
-# Only if this isn't CI
-# if [ -z "$CI" ]; then
-# fi
+# Add bin to path if using thoughtbot dotfiles:
+# http://goo.gl/CPzari
+mkdir .git/safe

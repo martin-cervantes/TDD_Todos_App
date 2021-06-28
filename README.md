@@ -1,4 +1,4 @@
-# Fundamentals of TDD / Tdd Spec Cleanup Exercise
+# Rails Testing Exercises / Testing Fundamentals Passing Your First Test
 
 Hey there! We're [thoughtbot](https://thoughtbot.com), a design and
 development consultancy that brings your digital product ideas to life.
@@ -6,56 +6,62 @@ We also love to share what we learn.
 
 This coding exercise comes from [Upcase](https://thoughtbot.com/upcase),
 the online learning platform we run. It's part of the
-[Fundamentals of TDD](https://thoughtbot.com/upcase/fundamentals-of-tdd) course and is just one small sample of all
+[Rails Testing Exercises](https://thoughtbot.com/upcase/rails-testing-exercises) course and is just one small sample of all
 the great material available on Upcase, so be sure to visit and check out the rest.
 
 ## Exercise Intro
 
-Test code deserves the same care and effort as we put into writing our production code. In this exercise you'll take a messy test and refactor it to better capture the intent and tell a good story.
+In order to get your feet wet with testing, let's write a test for a simple Ruby class. In this example, we'll be using RSpec.
+
+While writing the test, try to focus on the following questions:
+
+* What method am I trying to test? The part of the test which calls this method is called the "exercise."
+* What objects will I need to build and configure before running the method I'm trying to test? The part of the test which sets up these objects is called the "setup."
+* What do I want this method to return, and what should be different after this method has been executed? The part of the test which checks the results is called the "verification."
+
+In this exercise, you'll see some basic RSpec usage:
+
+* `describe` for organizing tests
+* `it` for declaring tests which can be run independently
+* `expect` and matchers, like `eq` for setting up expectations for the results of a test
+
+You can see some examples of RSpec usage in the [rspec-expectations documentation](http://rubydoc.info/gems/rspec-expectations/file/README.md).
 
 ## Instructions
 
 To start, you'll want to clone and run the setup script for the repo
 
-    git clone git@github.com:thoughtbot-upcase-exercises/tdd-spec-cleanup-exercise.git
-    cd tdd-spec-cleanup-exercise
+    git clone git@github.com:thoughtbot-upcase-exercises/testing-fundamentals-passing-your-first-test.git
+    cd testing-fundamentals-passing-your-first-test
     bin/setup
 
-Your goal is to refactor the provided spec to help it tell a good story. Currently the spec makes heavy use of features like `let` and `before`, obscuring the behavior and assertions in each of the specs. Instead, we want each spec to stand on its own, telling a small clear story about the behavior of our model
+Write a test for the already-written `full_name` method.
 
-1. Edit the spec in `spec/models/invitation_spec.rb`.
-2. Refactor the spec, cleaning up and clarifying things _without_ changing the test or model behavior
-3. As with any good refactoring, your tests should remain green throughout. Be sure to check with:
+Your test should go in the `spec/person_spec.rb` file.
 
-```
-$ bin/rspec spec/models/invitation_spec.rb
-```
+You're done when the test is green.
 
-**Your goal is to refactor the specs in that file to clarify the behavior and tell a good story**
+## Featured Solution
 
-- Keep the 4 phase test model in mind (likely you'll only need 3 as tear down is automated)
-- Feel free to extract helper methods to abstract away details while keeping setup explicit to the spec
-
-## Tips and Tricks
-
-Revisit the video on [Telling a Story with Your Tests](https://thoughtbot.com/upcase/videos/telling-a-story-with-your-tests) for tips on how to tackle this cleanup.
+Check out the [featured solution branch](https://github.com/thoughtbot-upcase-exercises/testing-fundamentals-passing-your-first-test/compare/featured-solution#toc) to
+see the approach we recommend for this exercise.
 
 ## Forum Discussion
 
 If you find yourself stuck, be sure to check out the associated
-[Upcase Forum discussion](https://forum.upcase.com)
+[Upcase Forum discussion](https://forum.upcase.com/t/testing-fundamentals-passing-your-first-test/4566)
 for this exercise to see what other folks have said.
 
 ## Next Steps
 
 When you've finished the exercise, head on back to the
-[Fundamentals of TDD](https://thoughtbot.com/upcase/fundamentals-of-tdd) course to find the next exercise,
+[Rails Testing Exercises](https://thoughtbot.com/upcase/rails-testing-exercises) course to find the next exercise,
 or explore any of the other great content on
 [Upcase](https://thoughtbot.com/upcase).
 
 ## License
 
-tdd-spec-cleanup-exercise is Copyright © 2015-2018 thoughtbot, inc. It is free software,
+testing-fundamentals-passing-your-first-test is Copyright © 2015-2018 thoughtbot, inc. It is free software,
 and may be redistributed under the terms specified in the
 [LICENSE](/LICENSE.md) file.
 
